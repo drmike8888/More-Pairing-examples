@@ -1,0 +1,29 @@
+The file bbs_signature.c contains a test program to compute a BBS
+signature as described in the paper "Revisiting BBS Signatures"
+using the library of subroutines developed in the book Elliptic
+Cruve Cryptography for Developers (http://mng.bz/NVev)
+
+The basic idea is to compute the hash of multiple messages, called
+variable l in the paper. Here I use the value NUMESG = 16. A vector
+of points is used to multiply the hash of each message. As stated in
+the paper, a fixed method can be used to create these points based
+on the index for each point. The subroutine msgpoint() performs that
+task.
+
+Note that in a real situation the values output from msgpoint() will
+be used by both the signer and verifier. So the code used to create
+point Csum will be used every time the signature is verified.
+
+For details on how the library works, see the book Elliptic Curve
+Cryptography for Developers.
+
+Here is the reference to the paper:
+
+@misc{cryptoeprint:2023/275,
+      author = {Stefano Tessaro and Chenzhi Zhu},
+      title = {Revisiting BBS Signatures},
+      howpublished = {Cryptology ePrint Archive, Paper 2023/275},
+      year = {2023},
+      note = {\url{https://eprint.iacr.org/2023/275}},
+      url = {https://eprint.iacr.org/2023/275}
+}
